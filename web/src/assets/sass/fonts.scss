@@ -1,0 +1,15 @@
+$font_path: '../fonts/';
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue'), url('../fonts/HelveticaNeue.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Bold"), url("../fonts/HelveticaNeueBd.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+}

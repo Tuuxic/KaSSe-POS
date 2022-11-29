@@ -1,0 +1,184 @@
+{
+    "users": [
+        {
+            "name": "Robert",
+            "id": 0,
+            "room": "12",
+            "balance": -331,
+            "favorites": [
+                "4004154069339",
+                "4004154033330",
+                "4004154035334"
+            ]
+        },
+        {
+            "name": "Peter",
+            "id": 1,
+            "room": "03",
+            "balance": -10,
+            "favorites": []
+        },
+        {
+            "name": "Mr. Bean",
+            "id": 2,
+            "room": "04",
+            "balance": -200,
+            "favorites": []
+        },
+        {
+            "name": "Satan",
+            "id": 3,
+            "room": "07",
+            "balance": -1120,
+            "favorites": []
+        },
+        {
+            "name": "Jesus",
+            "id": 4,
+            "room": "09",
+            "balance": -310,
+            "favorites": []
+        },
+        {
+            "name": "Obi-Wan",
+            "id": 5,
+            "room": "13",
+            "balance": -582,
+            "favorites": []
+        },
+        {
+            "name": "Bob",
+            "id": 6,
+            "room": "15",
+            "balance": 389,
+            "favorites": []
+        },
+        {
+            "name": "Solanum",
+            "id": 7,
+            "room": "08",
+            "balance": 12,
+            "favorites": []
+        },
+        {
+            "name": "Feldspar",
+            "id": 8,
+            "room": "11",
+            "balance": 5123,
+            "favorites": []
+        },
+        {
+            "name": "Jessica",
+            "id": 9,
+            "room": "01",
+            "balance": 2.842170943040401e-14,
+            "favorites": []
+        },
+        {
+            "name": "Garfield",
+            "id": 10,
+            "room": "06",
+            "balance": -3123,
+            "favorites": []
+        },
+        {
+            "name": "Adam",
+            "id": 11,
+            "room": "10",
+            "balance": -127,
+            "favorites": []
+        },
+        {
+            "name": "Eve",
+            "id": 12,
+            "room": "14",
+            "balance": -111,
+            "favorites": []
+        },
+        {
+            "name": "Eric",
+            "id": 13,
+            "room": "02",
+            "balance": -666,
+            "favorites": []
+        },
+        {
+            "name": "Anakin",
+            "id": 14,
+            "room": "05",
+            "balance": -1337,
+            "favorites": []
+        },
+        {
+            "name": "Dickus",
+            "id": 15,
+            "balance": -2048,
+            "favorites": []
+        },
+        {
+            "name": "King Kong",
+            "id": 16,
+            "balance": -6969,
+            "favorites": []
+        },
+        {
+            "name": "Longus",
+            "id": 17,
+            "balance": -240,
+            "favorites": []
+        },
+        {
+            "name": "Jar Jar",
+            "id": 18,
+            "balance": 420,
+            "favorites": []
+        },
+        {
+            "name": "Faith",
+            "id": 19,
+            "balance": 12345,
+            "favorites": []
+        },
+        {
+            "name": "Corvo",
+            "id": 20,
+            "balance": -1234,
+            "favorites": []
+        },
+        {
+            "name": "Minas",
+            "id": 21,
+            "balance": 999,
+            "favorites": []
+        },
+        {
+            "name": "Riebeck",
+            "id": 22,
+            "balance": -123,
+            "favorites": []
+        },
+        {
+            "name": "Gabbro",
+            "id": 23,
+            "balance": -932,
+            "favorites": []
+        }
+    ],
+    "active_users": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ]
+}
