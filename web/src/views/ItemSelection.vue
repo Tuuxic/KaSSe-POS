@@ -1,8 +1,16 @@
 <template>
     <div id="item-selection">
         <div v-if="items != null">
-            <b-row class="item-bar flex-nowrap m-0 px-2">
-                <b-card no-body v-for="item in items" :key="item.barcode" class="item-container mx-2 my-4 shadow"
+            
+            <b-row class="m-0 flex-nowrap">
+                
+                <b-col>
+                    <b-card class="shadow mt-4">
+                        <h1>Items</h1>
+                    <div class="item-selection">
+
+                    <b-card-group deck class="card-group">
+                    <b-card no-body v-for="item in items" :key="item.barcode" class="item-container mx-2 my-4 shadow"
                         @click="addItem(item)">
                     <b-card-body>
                         <h3>
@@ -22,10 +30,14 @@
                             <h5><b>{{item.variant}}</b></h5>
                         </b-card-text>
                     </b-card-body>
+                    </b-card>
+                    </b-card-group>
+                
+                </div>
                 </b-card>
-            </b-row>
-            <b-row class="m-0 flex-nowrap">
-                <b-col cols="7">
+                </b-col>
+                
+                <b-col class="mt-4" cols="5">
                     <b-card class="shadow text-left expand">
                         <b-table :items="selected_items" :fields="fields" v-if="selected_items.length > 0">
                             <template v-slot:cell(item)="data">
@@ -58,25 +70,35 @@
                         </div>
                     </b-card>
                 </b-col>
-                <b-col class="pl-0">
-                    <b-card no-body class="shadow expand">
-                        <b-card-body class="d-flex flex-column">
-                            <h1>Total: {{formatPrice(total())}}</h1>
+            </b-row>
+            <b-row class="flex-nowrap px-2 mt-5 ml-2 mr-1">
+                <b-col class="pl-0" cols="12">
+                    <b-card no-body class="shadow">
+                        <b-card-body class="d-flex">
+                            <b-col class="d-flex flex-column">
+                                <h1>Total: {{formatPrice(total())}}</h1>
                             <template v-if="$parent.selected_user != null">
                                 <h4 class="text-muted my-auto">{{$parent.selected_user.name}}<br>
                                     Balance: {{formatPrice($parent.selected_user.balance)}}</h4>
-                                <b-form-checkbox size="lg" v-model="guest">Mark as guest purchase
+                                    <b-form-checkbox size="small" v-model="guest">Mark as guest purchase
                                 </b-form-checkbox>
-                                <b-button size="lg" variant="success" class="mt-auto shadow"
-                                          :disabled="selected_items.length === 0" @click="buy"><h1>Confirm</h1>
-                                </b-button>
+                                
                             </template>
                             <h4 v-else class="text-muted my-auto">No user selected!</h4>
-                            <b-button size="lg" variant="secondary" class="mt-3 shadow" @click="$router.push('/')"><h1>
+                            </b-col>
+                            <b-col class="d-flex flex-column">
+                                <template v-if="$parent.selected_user != null">
+                                    <b-button size="lg" variant="success" class="mt-auto shadow"
+                                          :disabled="selected_items.length === 0" @click="buy"><h1>Confirm</h1>
+                                </b-button>
+                                </template>
+                                <b-button size="lg" variant="secondary" class="mt-3 shadow" @click="$router.push('/')"><h1>
                                 Cancel</h1></b-button>
+                            </b-col>
                         </b-card-body>
                     </b-card>
                 </b-col>
+                
             </b-row>
         </div>
     </div>
@@ -259,12 +281,9 @@
         overflow: hidden;
     }
 
-    .item-bar {
-        overflow-x: scroll;
-    }
-
     .item-container {
         min-width: 250px;
+        max-width: 250px;
     }
 
     .item-image {
@@ -301,6 +320,13 @@
         position: absolute;
         right: 20px;
     }
+
+    .item-selection {
+        overflow-y: scroll;
+        height: calc(90vh - 345px);
+        margin-top: 0;
+    }
+    
 
     .purple-gradient {
         background: rgb(214, 0, 255);
