@@ -38,7 +38,7 @@
                 </b-col>
                 
                 <b-col class="mt-4" cols="5">
-                    <b-card class="shadow text-left expand">
+                    <b-card class="shadow text-center expand">
                         <b-table :items="selected_items" :fields="fields" v-if="selected_items.length > 0">
                             <template v-slot:cell(item)="data">
                                 {{data.item.name}} <b>{{data.item.variant}}</b> {{formatVolume(data.item.volume)}}
@@ -64,8 +64,8 @@
                             </template>
                         </b-table>
                         <div v-else class="d-flex flex-column empty-cart">
-                            <h5>Your shopping cart is empty.</h5>
-                            <p>Select products by picking them above or scanning their barcodes.</p>
+                            <h1>Your shopping cart is empty.</h1>
+                            <p>Please select the items you want to buy</p>
                             <div class="gif shadow" v-bind:style="{ 'background-image': 'url(' + gif + ')' }"/>
                         </div>
                     </b-card>

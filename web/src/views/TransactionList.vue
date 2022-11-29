@@ -82,8 +82,6 @@
 <script>
     import axios from "axios"
 
-    const interpolate = require('color-interpolate')
-
     const moment = require('moment');
 
     export default {
@@ -117,8 +115,11 @@
                 return value + 'l'
             },
             balanceColor(balance) {
-                let map = interpolate(['green', 'orange', 'red'])
-                return map(Math.max((-balance / 100) / 30, 0))
+                if (balance > 0) {return "green";}
+                if (balance == 0) {return "white"}
+                if (balance < 0 && balance > -3000) {return "red"}
+                if (balance <= -30) {return "maroon"}
+                return "white"
             },
             getTransactions() {
                 axios.get(this.$parent.host + '/transactions').then((res) => {

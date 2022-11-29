@@ -169,9 +169,7 @@
                 //let map = interpolate(['green', 'orange', 'red'])
                 //return map(Math.max((-balance / 100) / 30, 0))
                 if (balance > 0) {return "green";}
-
                 if (balance == 0) {return "white"}
-
                 if (balance < 0 && balance > -3000) {return "red"}
                 if (balance <= -30) {return "maroon"}
                 return "white"
