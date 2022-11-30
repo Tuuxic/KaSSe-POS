@@ -1,79 +1,102 @@
 [
     {
-        "price": 70,
-        "barcode": "4029764001807",
+        "price": 75,
+        "barcode": "0",
         "name": "CLUB-MATE",
         "image": "club_mate.png",
         "volume": 0.5,
         "variant": null
     },
     {
-        "price": 55,
-        "barcode": "4004154069339",
+        "price": 80,
+        "barcode": "21",
+        "name": "CLUB-MATE",
+        "image": "club_mate_zero.png",
+        "volume": 0.5,
+        "variant": "Zero"
+    },
+    {
+        "price": 80,
+        "barcode": "30",
+        "name": "CLUB-MATE",
+        "image": "club_mate_icetea.png",
+        "volume": 0.5,
+        "variant": "ICE-TEA"
+    },
+    {
+        "price": 70,
+        "barcode": "15",
+        "name": "CLUB-MATE",
+        "image": "club_mate_cola.png",
+        "variant": "Cola",
+        "volume": 0.33
+    },
+    {
+        "price": 85,
+        "barcode": "20",
+        "name": "Paulaner Spezi",
+        "image": "paulaner_spezi.png",
+        "volume": 0.5,
+        "variant": null
+    },
+    {
+        "price": 70,
+        "barcode": "40",
+        "name": "Power Fuel",
+        "image": "power_fuel.png",
+        "volume": 0.5,
+        "variant": null
+    },
+    {
+        "price": 110,
+        "barcode": "10",
+        "name": "hoepfner Kräusen",
+        "image": "hoepfner_kraeusen.png",
+        "volume": 0.5,
+        "variant": null
+    },
+    {
+        "price": 110,
+        "barcode": "11",
+        "name": "Chiemseer",
+        "image": "chiemseer_hell.png",
+        "volume": 0.5,
+        "variant": "Hell"
+    },
+    {
+        "price": 85,
+        "barcode": "16",
+        "name": "Rothaus Tannenzäpfle",
+        "image": "tanne.png",
+        "volume": 0.33
+    },
+    {
+        "price": 75,
+        "barcode": "1",
         "name": "Burkhardt Eistee",
         "image": "bht_pfirsich.png",
         "volume": 0.33,
         "variant": "Pfirsich"
     },
     {
-        "price": 55,
-        "barcode": "4004154033330",
+        "price": 75,
+        "barcode": "2",
         "name": "Burkhardt Eistee",
         "image": "bht_granatapfel.png",
         "volume": 0.33,
         "variant": "Granatapfel"
     },
     {
-        "price": 55,
-        "barcode": "4004154035334",
+        "price": 75,
+        "barcode": "3",
         "name": "Burkhardt Eistee",
         "image": "bht_blaubeere.png",
         "volume": 0.33,
         "variant": "Blaubeer"
     },
     {
-        "price": 55,
-        "barcode": "4003904033804",
-        "name": "Bad Liebenzeller ACE Saft",
-        "image": "blz_ace.png",
-        "volume": 0.7,
-        "variant": null
-    },
-    {
-        "price": 55,
-        "barcode": "4003904033507",
-        "name": "Bad Liebenzeller Apfelschorle",
-        "image": "blz_apple.png",
-        "volume": 0.7,
-        "variant": null
-    },
-    {
-        "price": 30,
-        "barcode": "4003904031107",
-        "name": "Bad Liebenzeller Mineralwasser",
-        "image": "blz_classic.png",
-        "volume": 0.7,
-        "variant": "Classic"
-    },
-    {
-        "price": 30,
-        "barcode": "4003904031008",
-        "name": "Bad Liebenzeller Mineralwasser",
-        "image": "blz_medium.png",
-        "volume": 0.7,
-        "variant": "Medium"
-    },
-    {
-        "price": 55,
-        "barcode": "4003904031404",
-        "name": "Bad Liebenzeller COLA-MIX",
-        "image": "blz_cola.png",
-        "volume": 0.7,
-        "variant": null
-    },
-    {
-        "price": 90,
-        "barcode": "4105250022003",
+        "price": 110,
+        "barcode": "9",
         "name": "Augustinerbräu Lagerbier",
         "image": "augustiner_hell.png",
         "volume": 0.5,
@@ -81,69 +104,23 @@
     },
     {
         "price": 90,
-        "barcode": "4008109340504",
-        "name": "hoepfner Kräusen",
-        "image": "hoepfner_kraeusen.png",
-        "volume": 0.5,
-        "variant": null
-    },
-    {
-        "price": 90,
-        "barcode": "4260248223616",
-        "name": "Chiemseer",
-        "image": "chiemseer_hell.png",
-        "volume": 0.5,
-        "variant": "Hell"
-    },
-    {
-        "price": 70,
-        "barcode": "4260107220060",
+        "barcode": "12",
         "name": "fritz-limo",
         "image": "fritz_limo_melone.png",
         "volume": 0.33,
         "variant": "Honigmelone"
     },
     {
-        "price": 70,
-        "barcode": "42278153",
-        "name": "ASTRA URTYP",
-        "image": "astra.png",
-        "volume": 0.33,
-        "variant": null
-    },
-    {
-        "price": 70,
-        "barcode": "4260107220299",
+        "price": 90,
+        "barcode": "14",
         "name": "fritz-limo",
         "image": "fritz_limo_ahk.png",
         "volume": 0.33,
         "variant": "Apfel Kirsch Holunder"
     },
     {
-        "price": 70,
-        "barcode": "4029764001883",
-        "name": "CLUB-MATE COLA",
-        "image": "club_mate_cola.png",
-        "volume": 0.33
-    },
-    {
-        "price": 70,
-        "barcode": "41051825",
-        "name": "Rothaus Tannenzäpfle",
-        "image": "tanne.png",
-        "volume": 0.33
-    },
-    {
-        "price": 55,
-        "barcode": "4003904031909",
-        "name": "Bad Liebenzeller",
-        "image": "blz_grapefruit.png",
-        "volume": 0.7,
-        "variant": "Grapefruit light"
-    },
-    {
-        "price": 70,
-        "barcode": "4260107220015",
+        "price": 90,
+        "barcode": "18",
         "name": "fritz-kola",
         "image": "fritz_kola.png",
         "volume": 0.33,

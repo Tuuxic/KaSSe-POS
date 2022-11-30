@@ -1,16 +1,4 @@
-
-<p align="center">
-<img src="screensaver.svg" alt="Cassie Hydration Systems" width="500">
-</p>
-
-<img src="cassie_irl.jpg" alt="Cassie IRL" width="50%" align="right">
-
-Cassie Hydration Systems©℗®™ is a fancy unneccessarily over-engineered soft- & hardware replacement for a paper based split bill.
-It runs on an old [POSBANK Imprex D5](https://www.newegg.com/posbank-imprex-d5-aio-15/p/N82E16849292010) and has been in daily use in my dorm since 2019.
-
-Users have a balance and can purchase items by selecting them on screen or scanning them.
-The system features a touch interface, liquid crystal customer display & usb barcode scanner. It stores all past transactions, allows for reimbusements, can handle variying users & items and works 100% offline.
-
+A simple Point-of-Service software to manage the payments for beverages.
 It uses [Vue](https://vuejs.org/), [SocketIO](https://socket.io/), [Flask](https://flask.palletsprojects.com/) and stores data as [JSON](https://www.json.org/) files.
 
 ## Setup
