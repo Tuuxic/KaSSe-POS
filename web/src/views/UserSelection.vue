@@ -141,7 +141,7 @@
                 this.active_users.forEach((user) => {
                     active.push({
                         value: user,
-                        text: user.name + (user.hasOwnProperty('room') ? ' i3' + user.room : '') // eslint-disable-line
+                        text: user.name + (user.hasOwnProperty('room') ? ' C3' + user.room : '') // eslint-disable-line
                     })
                 })
                 let inactive = []
@@ -169,7 +169,7 @@
                 //let map = interpolate(['green', 'orange', 'red'])
                 //return map(Math.max((-balance / 100) / 30, 0))
                 if (balance > 0) {return "green";}
-                if (balance == 0) {return "white"}
+                if (balance == 0) {return "gray"}
                 if (balance < 0 && balance > -3000) {return "red"}
                 if (balance <= -30) {return "maroon"}
                 return "white"
@@ -208,11 +208,6 @@
                     console.log(error)
                     this.$bvModal.hide('payment')
                 })
-            },
-            screensaver() {
-                axios.post(this.$parent.host + '/screensaver').catch((error) => {
-                    console.log(error)
-                })
             }
         }
     }
@@ -242,7 +237,7 @@
         right: 10px;
         top: -15px;
         z-index: 0;
-        color: #f0f0f0;
+        color: gray;
     }
 
     .user-foreground {
