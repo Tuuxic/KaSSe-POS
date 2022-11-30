@@ -24,6 +24,7 @@ npm install
 #### Backend:
 ```
 python main.py
+```
 
 #### Frontend:
 ```
