@@ -1,166 +1,108 @@
 {
     "users": [
         {
-            "name": "Robert",
+            "name": "Yohann",
             "id": 0,
-            "room": "12",
-            "balance": -331,
-            "favorites": [
-                "4004154069339",
-                "4004154033330",
-                "4004154035334"
-            ]
+            "room": "01",
+            "balance": 0,
+            "favorites": []
         },
         {
-            "name": "Peter",
+            "name": "Rebecca",
             "id": 1,
-            "room": "03",
-            "balance": -10,
+            "room": "02",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Mr. Bean",
+            "name": "Leonardo",
             "id": 2,
-            "room": "04",
-            "balance": -200,
+            "room": "03",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Satan",
+            "name": "Raju",
             "id": 3,
-            "room": "07",
-            "balance": -1120,
+            "room": "04",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Jesus",
+            "name": "Antonio",
             "id": 4,
-            "room": "09",
-            "balance": -310,
+            "room": "05",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Obi-Wan",
+            "name": "Lily",
             "id": 5,
-            "room": "13",
-            "balance": -582,
+            "room": "06",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Bob",
+            "name": "Leonard",
             "id": 6,
-            "room": "15",
-            "balance": 389,
+            "room": "07",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Solanum",
+            "name": "Dari",
             "id": 7,
             "room": "08",
-            "balance": 12,
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Feldspar",
+            "name": "Sergiu",
             "id": 8,
-            "room": "11",
-            "balance": 5123,
+            "room": "09",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Jessica",
+            "name": "Paul",
             "id": 9,
-            "room": "01",
-            "balance": 2.842170943040401e-14,
-            "favorites": []
-        },
-        {
-            "name": "Garfield",
-            "id": 10,
-            "room": "06",
-            "balance": -3123,
-            "favorites": []
-        },
-        {
-            "name": "Adam",
-            "id": 11,
             "room": "10",
-            "balance": -127,
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Eve",
+            "name": "Simon",
+            "id": 10,
+            "room": "11",
+            "balance": 0,
+            "favorites": []
+        },
+        {
+            "name": "Dennis",
+            "id": 11,
+            "room": "12",
+            "balance": 0,
+            "favorites": []
+        },
+        {
+            "name": "Nik",
             "id": 12,
-            "room": "14",
-            "balance": -111,
+            "room": "13",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Eric",
+            "name": "Phillip",
             "id": 13,
-            "room": "02",
-            "balance": -666,
+            "room": "14",
+            "balance": 0,
             "favorites": []
         },
         {
-            "name": "Anakin",
+            "name": "Felix",
             "id": 14,
-            "room": "05",
-            "balance": -1337,
-            "favorites": []
-        },
-        {
-            "name": "Dickus",
-            "id": 15,
-            "balance": -2048,
-            "favorites": []
-        },
-        {
-            "name": "King Kong",
-            "id": 16,
-            "balance": -6969,
-            "favorites": []
-        },
-        {
-            "name": "Longus",
-            "id": 17,
-            "balance": -240,
-            "favorites": []
-        },
-        {
-            "name": "Jar Jar",
-            "id": 18,
-            "balance": 420,
-            "favorites": []
-        },
-        {
-            "name": "Faith",
-            "id": 19,
-            "balance": 12345,
-            "favorites": []
-        },
-        {
-            "name": "Corvo",
-            "id": 20,
-            "balance": -1234,
-            "favorites": []
-        },
-        {
-            "name": "Minas",
-            "id": 21,
-            "balance": 999,
-            "favorites": []
-        },
-        {
-            "name": "Riebeck",
-            "id": 22,
-            "balance": -123,
-            "favorites": []
-        },
-        {
-            "name": "Gabbro",
-            "id": 23,
-            "balance": -932,
+            "room": "15",
+            "balance": 0,
             "favorites": []
         }
     ],

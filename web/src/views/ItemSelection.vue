@@ -327,6 +327,11 @@
         margin-top: 0;
     }
     
+    .card-group {
+        display: flex;
+        justify-content: center;
+
+    }
 
     .purple-gradient {
         background: rgb(214, 0, 255);
