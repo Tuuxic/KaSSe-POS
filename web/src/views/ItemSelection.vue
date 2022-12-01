@@ -157,13 +157,6 @@
                     item_to_add.quantity = 1
                     this.selected_items.push(item_to_add)
                 }
-                this.$parent.CDPmessage({
-                    top: {left: item_to_add.name},
-                    bottom: {
-                        left: item_to_add.variant !== null ? item_to_add.variant : '',
-                        right: (item_to_add.price / 100).toFixed(2)
-                    }
-                }, 2)
             },
             removeItem(item_to_remove) {
                 let matching_item = this.selected_items.filter(item => {
@@ -204,7 +197,6 @@
                     transaction.guest = true
                 }
                 axios.post(this.$parent.host + '/transactions/add', transaction).then(() => {
-                    this.$parent.CDPmessage({top: {center: 'Thanks for your'}, bottom: {center: 'purchase!'}}, 10)
                     this.$router.push('/')
                 }).catch((error) => {
                     console.log(error)
@@ -241,14 +233,12 @@
                         this.$parent.selected_user.favorites.splice(index, 1)
                     }
                     axios.post(this.$parent.host + '/favorites/remove', {id: this.$parent.selected_user.id, barcode: barcode}).then(() => {
-                        this.$parent.CDPmessage({top: {center: 'Favorite'}, bottom: {center: 'removed!'}}, 2)
                     }).catch((error) => {
                         console.log(error)
                     })
                 } else {
                     this.$parent.selected_user.favorites.push(barcode)
                     axios.post(this.$parent.host + '/favorites/add', {id: this.$parent.selected_user.id, barcode: barcode}).then(() => {
-                        this.$parent.CDPmessage({top: {center: 'Favorite'}, bottom: {center: 'added!'}}, 2)
                     }).catch((error) => {
                         console.log(error)
                     })

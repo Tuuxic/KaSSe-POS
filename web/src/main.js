@@ -21,9 +21,6 @@ Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
 
-const socket = io('http://localhost:5000')
-Vue.use(VueSocketIOExt, socket)
-
 new Vue({
     router,
     render: h => h(App)

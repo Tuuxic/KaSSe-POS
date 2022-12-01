@@ -114,7 +114,6 @@
         name: 'user-selection',
         created() {
             this.getUsers()
-            this.$parent.CDPclock()
         },
         data() {
             return {
@@ -154,9 +153,6 @@
         methods: {
             selectUser(user) {
                 this.$parent.selected_user = user
-                this.$parent.CDPmessage({
-                    top: {center: user.name},
-                    bottom: {center: (user.balance / 100).toFixed(2)}}, 2)
                 this.$router.push('item-selection')
             },
             formatPrice(value) {
@@ -202,7 +198,6 @@
                     'impact': this.payment_amount * 100
                 }
                 axios.post(this.$parent.host + '/transactions/add', transaction).then(() => {
-                    this.$parent.CDPmessage({top: {center: 'Payment added!'}}, 10)
                     this.$bvModal.hide('payment')
                 }).catch((error) => {
                     console.log(error)

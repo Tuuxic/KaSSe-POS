@@ -32,3 +32,6 @@ cd web
 
 npm run serve
 ```
+## Server
+
+If you want to run this on a server u have to change the "host" variable in App.vue to the IP address of your server (with the corresponding port of the backend)

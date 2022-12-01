@@ -68,8 +68,8 @@
                         </template>
                         <template v-slot:cell(undo)="data">
                             <b-button :id="'button-undo-transaction' + data.index" variant="danger" class="shadow"
-                                      v-if="isLessThenHalfAnHourAgo(data.item.date)"
-                                      @click="showUndoModal(data.item)">Undo
+                                    v-if="isLessThenHalfAnHourAgo(data.item.date)"
+                                    @click="showUndoModal(data.item)">Undo
                             </b-button>
                         </template>
                     </b-table>
@@ -136,7 +136,6 @@
             undoTransaction(transaction) {
                 this.$bvModal.hide('undo-modal')
                 axios.post(this.$parent.host + '/transactions/undo', {date: transaction.date}).then(() => {
-                    this.$parent.CDPmessage({top: 'Transaction undone!'}, 10)
                     this.getTransactions()
                 }).catch((error) => {
                     console.log(error)
@@ -144,6 +143,7 @@
                 })
             },
             isLessThenHalfAnHourAgo(date) {
+                console.log(moment(date, 'DD.MM.YYYY, HH:mm:ss'))
                 return moment().subtract(60, 'minutes') < moment(date, 'DD.MM.YYYY, HH:mm:ss')
             },
             sortByDate(a, b, key) {
