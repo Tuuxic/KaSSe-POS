@@ -1,7 +1,29 @@
 <template>
     <div id="user-selection">
+        <b-modal v-if="!this.$parent.auth" id="auth" size="xl" hide-header hide-footer no-close-on-backdrop centered>
+                <h1 class="text-center text-muted" style="font-size: 45pt; margin-bottom: 5%">Authentification</h1>
+                <div class="text-center">
+                    <b-button-group size="md" class="mb-3 d-flex flex-row shadow">
+                        <b-button variant="outline-secondary" v-for="number in 10" :key="'number-'+number"
+                                  @click="auth_code += number-1 ; if(auth_code.length > 10) {auth_code = auth_code.substring(0, 20)}">
+                            <h3>{{number - 1}}</h3>
+                        </b-button>
+                        <b-button variant="outline-secondary" @click="auth_code = auth_code.slice(0, -1)">
+                            <font-awesome-icon :icon="['fas','backspace']"/>
+                        </b-button>
+                    </b-button-group>
+                </div>
+                <h2 v-if="auth_code===''" class="text-center text-muted mb-4">Please enter a code</h2>
+                <h2 v-else class="text-center text-muted mb-4">{{auth_code}}</h2>
+                <b-button @click="authenticate" class="shadow" block size="lg" variant="success"
+                          :disabled="(auth_code !== auth_number)"><h1>Confirm</h1>
+                </b-button>
+        </b-modal>
+
+
+
         <b-row class="py-4 px-3 full-height m-0" v-if="active_users != null">
-            <b-modal id="payment" hide-header hide-footer>
+            <b-modal id="payment" hide-header hide-footer centered>
                 <h2 class="text-center text-muted">User</h2>
                 <b-form-select size="lg" class="shadow mb-3" v-model="payment_user"
                                :options="paymentUserOptions"></b-form-select>
@@ -114,6 +136,13 @@
         name: 'user-selection',
         created() {
             this.getUsers()
+            
+        },
+        mounted() {
+            if(!this.$parent.auth) {
+                this.$bvModal.show('auth')
+            }
+            
         },
         data() {
             return {
@@ -123,7 +152,9 @@
                 key: 0,
                 payment_user: null,
                 payment_amount: 30,
-                payment_code: ''
+                payment_code: '',
+                auth_code: '',
+                auth_number: "31342069"
             }
         },
         computed: {
@@ -203,6 +234,10 @@
                     console.log(error)
                     this.$bvModal.hide('payment')
                 })
+            },
+            authenticate() {
+                this.$parent.auth = true
+                this.$bvModal.hide("auth")
             }
         }
     }

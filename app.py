@@ -1,11 +1,15 @@
+import sys
 from gevent import monkey
 
 monkey.patch_all()
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from flask_socketio import SocketIO
 import json, atexit, time
+
+# SSL and HTTPS Stuff
+CERT_PATH = ''
+PRIVATE_KEY_PATH = ''
 
 USERS_PATH = 'data/users.json'
 ITEMS_PATH = 'data/items.json'
@@ -15,13 +19,7 @@ DEBUG = False
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-sio = SocketIO(app, cors_allowed_origins='*')
-
 CORS(app, resources={r'/*': {'origins': '*'}})
-
-
-def send_code(barcode):
-    sio.emit('codeScanned', barcode)
 
 
 @app.route('/<path:path>')
@@ -148,8 +146,12 @@ def run():
 
     atexit.register(save_data)
 
-    # app.run(host='0.0.0.0')
-    sio.run(app, host='0.0.0.0')
+    if 'nossl' in sys.argv:
+        app.run(host='0.0.0.0') 
+    else:    
+        context = (CERT_PATH, PRIVATE_KEY_PATH)
+        app.run(host='0.0.0.0', ssl_context=context)
+     
 
 
 if __name__ == '__main__':

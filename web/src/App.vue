@@ -12,8 +12,10 @@
         },
         data() {
             return {
-                host: 'http://localhost:5000',
-                selected_user: null
+                // host: 'https://getraenke.c3flur.de:5000',
+                host: "http://localhost:5000", 
+                selected_user: null,
+                auth: false
             }
         },
         methods: {
