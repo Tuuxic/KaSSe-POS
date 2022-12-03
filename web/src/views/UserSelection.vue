@@ -1,9 +1,10 @@
 <template>
     <div id="user-selection">
         <b-modal v-if="!this.$parent.auth" id="auth" size="xl" hide-header hide-footer no-close-on-backdrop centered>
-                <h1 class="text-center text-muted" style="font-size: 45pt; margin-bottom: 5%">Authentification</h1>
+                <h1 class="header-large text-center text-muted" style="font-size: 45pt; margin-bottom: 5%">Authentification</h1>
+                <h1 class="header-small text-center text-muted" style="font-size: 30pt; margin-bottom: 5%">Authentification</h1>
                 <div class="text-center">
-                    <b-button-group size="md" class="mb-3 d-flex flex-row shadow">
+                    <b-button-group size="sm" class="mb-3 d-flex flex-row shadow">
                         <b-button variant="outline-secondary" v-for="number in 10" :key="'number-'+number"
                                   @click="auth_code += number-1 ; if(auth_code.length > 10) {auth_code = auth_code.substring(0, 20)}">
                             <h3>{{number - 1}}</h3>
@@ -44,7 +45,7 @@
                 </b-input-group>
                 <h2 class="text-center text-muted">Admin code</h2>
                 <div class="text-center">
-                    <b-button-group size="md" class="mb-3 d-flex flex-row shadow">
+                    <b-button-group size="sm" class="mb-3 d-flex flex-row shadow">
                         <b-button variant="outline-secondary" v-for="number in 10" :key="'number-'+number"
                                   @click="payment_code += number-1">
                             <h3>{{number - 1}}</h3>
@@ -59,32 +60,39 @@
                           :disabled="payment_user == null || payment_code !== '2306'"><h1>Confirm payment</h1>
                 </b-button>
             </b-modal>
-            <b-col cols="3" class="d-flex flex-column px-0">
-                <b-card no-body class="shadow" style="flex-grow: 1">
+            <b-col cols="3" class="left-side-card d-flex flex-column px-0">
+                <b-card no-body class="left-side-panel shadow">
                     <b-card-body class="d-flex flex-column">
                         <h1 class="logo gradient-text">Kasse</h1>
+                        <h1 class="logo-small gradient-text">K</h1>
                         <div class="mb-3">
                             <hr>
                         </div>
-                        <b-button pill size="lg" block variant="outline-secondary" class="shadow mb-3"
+                        <b-button pill size="lg" block variant="outline-secondary" class="left-sidebar-button shadow mb-3"
                                   @click="$router.push('/transaction-list')">
-                            Transactions
+                            <div class="sidebar-inner-txt">Transactions</div>
+                            <img class="sidebar-icon" src="../assets/images/icons/transaction.png" alt="Italian Trulli">
                         </b-button>
+                        
 
-                        <b-button pill size="lg" block variant="outline-secondary" class="shadow mb-3"
+                        <b-button pill size="lg" block variant="outline-secondary" class="left-sidebar-button shadow mb-3"
                                   @click="key = (key+1) % sorting_keys.length">
-                            Sort by: {{sorting_keys[key]}}
+                            <div class="sidebar-inner-txt">Sort by: {{sorting_keys[key]}}</div>
+                            <img class="sidebar-icon" src="../assets/images/icons/sort.png" alt="Italian Trulli">
                         </b-button>
+                        
 
-                        <b-button pill size="lg" block variant="outline-secondary" class="shadow mb-3"
+                        <b-button pill size="lg" block variant="outline-secondary" class="left-sidebar-button shadow mb-3"
                                   @click="showPayment">
-                            Add payment
+                            <div class="sidebar-inner-txt">Add payment</div>
+                            <img class="sidebar-icon" src="../assets/images/icons/pay.png" alt="Italian Trulli">
                         </b-button>
+                        
 
                     </b-card-body>
                 </b-card>
             </b-col>
-            <b-col class="d-flex flex-column">
+            <b-col class="user-select-section d-flex flex-column">
                 <b-row>
                     <b-col v-for="user in sortedActiveUsers" :key="'active-' + user.id" cols="4"
                            class="mb-3 pl-3 pr-0 text-muted">
@@ -92,8 +100,8 @@
                             <b-card-body class="p-2">
                                 <h1 class="room-number"><b>{{user.room}}</b></h1>
                                 <div class="user-foreground text-left pl-2">
-                                    <h2>{{user.name}}</h2>
-                                    <h3 :style="{color: balanceColor(user.balance)}">
+                                    <h2 class="selection-name-field">{{user.name}}</h2>
+                                    <h3 :style="{color: balanceColor(user.balance)}" class="selection-price-field">
                                         {{formatPrice(user.balance)}}</h3>
                                 </div>
                             </b-card-body>
@@ -115,7 +123,7 @@
                 </b-modal>
                 <b-row style="flex-grow: 1">
                     <b-col class="pr-0 text-muted" style="height: 100%">
-                        <b-card no-body class="shadow" style="height: 100%" @click="$bvModal.show('more-users')">
+                        <b-card no-body class="selection-more-users shadow" @click="$bvModal.show('more-users')">
                             <b-card-body class="p-2 d-flex flex-column">
                                 <h2 class="my-auto">More users</h2>
                             </b-card-body>
@@ -136,7 +144,6 @@
         name: 'user-selection',
         created() {
             this.getUsers()
-            
         },
         mounted() {
             if(!this.$parent.auth) {
@@ -255,6 +262,18 @@
         margin-bottom: -6px;
     }
 
+    .logo-small {
+        display: none;
+    }
+
+    .selection-more-users {
+        height: 100%;
+    }
+
+    .left-side-panel {
+        flex-grow: 1
+    }
+
     .gradient-text {
         background: -webkit-linear-gradient(45deg, #2537AF, #70E5CB);
         -webkit-background-clip: text;
@@ -274,4 +293,151 @@
         position: relative;
         z-index: 1;
     }
+
+    .sidebar-icon {
+        display: none;
+    }
+
+    .header-small {
+            display: none;
+        }
+
+    
+    /* Shrink Left Side Bar */
+    @media (max-width: 1000px) {
+        .room-number {
+        position: absolute;
+        font-size: 30pt;
+        right: 10px;
+        top: 45px;
+        z-index: 0;
+        color: gray;
+        }
+        .logo {
+            display: none;
+        }
+
+        .logo-small {
+            display: block;
+            font-size: 62px;
+            margin-bottom: -6px;
+        }
+
+        .left-sidebar-button {
+            font-size: 7pt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar-icon {
+            display: block;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        .sidebar-inner-txt {
+            display: none;
+        }
+
+    }
+
+    /* Medium size user selection items*/
+    @media (max-width: 1300px) and  (min-width: 800px) {
+        .room-number {
+        position: absolute;
+        font-size: 30pt;
+        right: 10px;
+        top: 45px;
+        z-index: 0;
+        color: gray;
+        }
+    }
+    
+
+    /* small size user selection items*/
+    @media (max-width: 799px) and (min-width:500px) {
+        .room-number {
+            position: absolute;
+            font-size: 20pt;
+            right: 10px;
+            top: 22px;
+            z-index: 0;
+            color: gray;
+        }
+
+        .selection-name-field {
+            font-size: 10pt;
+        }
+
+        .selection-price-field {
+            font-size: 10pt;
+        }
+
+        .user-select-section {
+            height: 60vh;
+        }
+
+        .left-side-card {
+            height: 60vh;
+        }
+        .sidebar-icon {
+            display: block;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    /* very small size user selection items*/
+    @media (max-width: 499px) and (min-width:0px) {
+        .room-number {
+            position: absolute;
+            font-size: 10pt;
+            right: 10px;
+            top: 24px;
+            z-index: 0;
+            color: gray;
+        }
+
+        .selection-name-field {
+            font-size: 7pt;
+        }
+
+        .selection-price-field {
+            font-size: 7pt;
+        }
+
+        .user-select-section {
+            height: 60vh;
+        }
+
+        .left-side-card {
+            height: 60vh;
+        }
+        .sidebar-icon {
+            display: block;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+        .header-small {
+            display: block;
+        }
+
+        .header-large {
+            display: none;
+        }
+    }
+
+    /* Adjust hight for left sidebar for small screens*/
+    @media (max-height: 770px)  and  (max-width: 799px){
+        .left-side-card {
+            height: 466px;
+        }
+    }
+
+    
 </style>
