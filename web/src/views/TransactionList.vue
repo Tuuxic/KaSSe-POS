@@ -1,6 +1,6 @@
 <template>
     <div id="transaction-list">
-        <div v-if="transactions != null" style="height: 100vh; overflow: hidden">
+        <div v-if="transactions != null" style="height: 100vh; overflow: hidden;">
             <b-card no-body class="shadow mx-3 my-4">
                 <b-card-body class="p-0">
                     <div class="p-3 text-left">
@@ -89,6 +89,11 @@
         created() {
             this.getTransactions()
         },
+        mounted() {
+            if(!this.$parent.auth) {
+                this.$router.push("/")
+            }  
+        },
         data() {
             return {
                 transactions: null,
@@ -143,7 +148,6 @@
                 })
             },
             isLessThenHalfAnHourAgo(date) {
-                console.log(moment(date, 'DD.MM.YYYY, HH:mm:ss'))
                 return moment().subtract(60, 'minutes') < moment(date, 'DD.MM.YYYY, HH:mm:ss')
             },
             sortByDate(a, b, key) {

@@ -5,7 +5,7 @@
             <b-row class="m-0 flex-nowrap">
                 
                 <b-col>
-                    <b-card class="shadow mt-4">
+                    <b-card class="items-card shadow mt-4">
                         <h1>Items</h1>
                     <div class="item-selection">
 
@@ -37,8 +37,8 @@
                 </b-card>
                 </b-col>
                 
-                <b-col class="mt-4" cols="5">
-                    <b-card class="shadow text-center expand">
+                <b-col class=" mt-4" cols="5">
+                    <b-card class="quantity-selector-table shadow text-center expand">
                         <b-table :items="selected_items" :fields="fields" v-if="selected_items.length > 0">
                             <template v-slot:cell(item)="data">
                                 {{data.item.name}} <b>{{data.item.variant}}</b> {{formatVolume(data.item.volume)}}
@@ -71,7 +71,7 @@
                     </b-card>
                 </b-col>
             </b-row>
-            <b-row class="flex-nowrap px-2 mt-5 ml-2 mr-1">
+            <b-row class="confirm-section flex-nowrap px-2 mt-5 ml-2 mr-1">
                 <b-col class="pl-0" cols="12">
                     <b-card no-body class="shadow">
                         <b-card-body class="d-flex">
@@ -111,6 +111,11 @@
         created() {
             this.getItems()
             this.gif = "'" + require('@/assets/images/gifs/' + this.gifs[Math.floor(Math.random() * (this.gifs.length - 1))]) + "'"
+        },
+        mounted() {
+            if(!this.$parent.auth) {
+                this.$router.push("/")
+            }
         },
         data() {
             return {
@@ -264,11 +269,16 @@
 
     .quantity-selector {
         min-width: 135px;
+        
+    }
+
+    .quantity-selector-table {
+        overflow-y: scroll;
+        overflow: scroll;
     }
 
     .expand {
         height: calc(100vh - 340px);
-        overflow: hidden;
     }
 
     .item-container {
@@ -313,7 +323,7 @@
 
     .item-selection {
         overflow-y: scroll;
-        height: calc(90vh - 345px);
+        height: calc(100vh - 438px);
         margin-top: 0;
     }
     
@@ -326,5 +336,46 @@
     .purple-gradient {
         background: rgb(214, 0, 255);
         background: linear-gradient(90deg, rgba(214, 0, 255, 1) 0%, rgba(255, 218, 0, 1) 100%);
+    }
+
+    @media (max-width: 825px) and (min-width: 576px) {
+        .item-container {
+            min-width: 200px;
+            max-width: 200px;
+        }
+
+        .items-card {
+            width: 75%;
+        }
+
+        .quantity-selector-table {
+            width: 150%;
+            margin-left: -40%;
+            overflow-y: scroll;
+        }
+    }
+
+    @media (max-width: 575px) and (min-width: 0px) {
+        .item-container {
+            min-width: 200px;
+            max-width: 200px;
+        }
+        .items-card {
+            width: 100%;
+        }
+
+        .item-selection {
+            display: flex;
+        }
+
+        .quantity-selector-table {
+            width: 263%;
+            overflow-y: scroll;
+        }
+
+        .confirm-section {
+            width: 200%;
+        }
+
     }
 </style>
