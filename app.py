@@ -8,8 +8,8 @@ from flask_cors import CORS
 import json, atexit, time
 
 # SSL and HTTPS Stuff
-CERT_PATH = ''
-PRIVATE_KEY_PATH = ''
+CERT_PATH = '/etc/letsencrypt/live/getraenke.c3flur.de/fullchain.pem'
+PRIVATE_KEY_PATH = '/etc/letsencrypt/live/getraenke.c3flur.de/privkey.pem'
 
 USERS_PATH = 'data/users.json'
 ITEMS_PATH = 'data/items.json'

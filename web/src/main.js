@@ -6,9 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import {BootstrapVue} from "bootstrap-vue"
 
-import VueSocketIOExt from 'vue-socket.io-extended';
-import io from 'socket.io-client';
-
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {faPlus, faMinus, faChevronLeft, faTimes, faCheck, faHandHoldingUsd, faUser, faBackspace, faHeart} from '@fortawesome/free-solid-svg-icons'

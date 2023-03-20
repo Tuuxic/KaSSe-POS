@@ -57,35 +57,35 @@
                 </div>
                 <h2 class="text-center text-muted">{{payment_code}}</h2>
                 <b-button @click="pay" class="shadow" block size="lg" variant="success"
-                          :disabled="payment_user == null || payment_code !== '2306'"><h1>Confirm payment</h1>
+                          :disabled="(payment_user == null || payment_code !== this.$parent.admin_code)"><h1>Confirm payment</h1>
                 </b-button>
             </b-modal>
             <b-col cols="3" class="left-side-card d-flex flex-column px-0">
                 <b-card no-body class="left-side-panel shadow">
                     <b-card-body class="d-flex flex-column">
-                        <h1 class="logo gradient-text">Kasse</h1>
-                        <h1 class="logo-small gradient-text">K</h1>
+                        <h1 class="logo gradient-text">Ka$$e</h1>
+                        <h1 class="logo-small gradient-text">$$</h1>
                         <div class="mb-3">
                             <hr>
                         </div>
                         <b-button pill size="lg" block variant="outline-secondary" class="left-sidebar-button shadow mb-3"
                                   @click="$router.push('/transaction-list')">
                             <div class="sidebar-inner-txt">Transactions</div>
-                            <img class="sidebar-icon" src="../assets/images/icons/transaction.png" alt="Italian Trulli">
+                            <img class="sidebar-icon" src="../assets/images/icons/transaction.png" alt="Transactions">
                         </b-button>
                         
 
                         <b-button pill size="lg" block variant="outline-secondary" class="left-sidebar-button shadow mb-3"
                                   @click="key = (key+1) % sorting_keys.length">
                             <div class="sidebar-inner-txt">Sort by: {{sorting_keys[key]}}</div>
-                            <img class="sidebar-icon" src="../assets/images/icons/sort.png" alt="Italian Trulli">
+                            <img class="sidebar-icon" src="../assets/images/icons/sort.png" alt="Sort">
                         </b-button>
                         
 
                         <b-button pill size="lg" block variant="outline-secondary" class="left-sidebar-button shadow mb-3"
                                   @click="showPayment">
                             <div class="sidebar-inner-txt">Add payment</div>
-                            <img class="sidebar-icon" src="../assets/images/icons/pay.png" alt="Italian Trulli">
+                            <img class="sidebar-icon" src="../assets/images/icons/pay.png" alt="Pay">
                         </b-button>
                         
 
@@ -223,6 +223,11 @@
                 })
             },
             showPayment() {
+                console.log(this.$parent.auth)
+                if(!this.$parent.auth) {
+                    this.$router.go()
+                    return;
+                }
                 this.payment_user = null
                 this.payment_amount = 30
                 this.payment_code = ''
@@ -254,7 +259,6 @@
     .full-height {
         height: 100vh;
         width: 100vw;
-        overflow: hidden;
     }
 
     .logo {

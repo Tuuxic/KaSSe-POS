@@ -12,10 +12,11 @@
         },
         data() {
             return {
-                //host: 'https://getraenke.c3flur.de:5000',
-                host: "http://localhost:5000", 
+                host: 'https://getraenke.c3flur.de:5000',
+                //host: "http://localhost:5000", 
                 selected_user: null,
-                auth: false
+                auth: false,
+                admin_code: "1337230601"
             }
         },
         methods: {

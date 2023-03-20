@@ -29,7 +29,7 @@
                                 <h2 class="text-center text-muted">{{undo_code}}</h2>
                             </div>
                             <b-button block size="lg"
-                                      :disabled="undo_code !== '2306' && undo_transaction.payment === true"
+                                      :disabled="undo_code !== getAdminCode() && undo_transaction.payment === true"
                                       variant="danger" @click="undoTransaction(undo_transaction)"
                                       class="shadow">
                                 Undo transaction
@@ -156,6 +156,9 @@
                 }
 
                 return moment(a.date, 'DD/MM/YYYY, HH:mm:ss') - moment(b.date, 'DD.MM.YYYY, HH:mm:ss') > 0 ? 1 : -1
+            },
+            getAdminCode() {
+                return this.$parent.admin_code
             }
         }
     }
