@@ -1,5 +1,6 @@
 import sys
 from gevent import monkey
+from gevent.pywsgi import WSGIServer
 
 monkey.patch_all()
 
@@ -150,7 +151,9 @@ def run():
         app.run(host='0.0.0.0') 
     else:    
         context = (CERT_PATH, PRIVATE_KEY_PATH)
-        app.run(host='0.0.0.0', ssl_context=context)
+        #app.run(host='0.0.0.0', ssl_context=context)
+        http_server = WSGIServer(('localhost', 5000), app, keyfile=PRIVATE_KEY_PATH, certfile=CERT_PATH)
+        http_server.serve_forever()
      
 
 
