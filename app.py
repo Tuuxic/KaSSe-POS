@@ -152,7 +152,7 @@ def run():
     else:    
         context = (CERT_PATH, PRIVATE_KEY_PATH)
         #app.run(host='0.0.0.0', ssl_context=context)
-        http_server = WSGIServer(('localhost', 5000), app, keyfile=PRIVATE_KEY_PATH, certfile=CERT_PATH)
+        http_server = WSGIServer(('0.0.0.0', 5000), app, keyfile=PRIVATE_KEY_PATH, certfile=CERT_PATH)
         http_server.serve_forever()
      
 
