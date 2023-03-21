@@ -200,3 +200,4 @@ dmypy.json
 /venv
 
 /data/transactions.json
+/data/users.json
