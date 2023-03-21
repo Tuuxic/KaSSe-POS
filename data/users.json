@@ -4,7 +4,7 @@
             "name": "Yohann",
             "id": 0,
             "room": "01",
-            "balance": 0,
+            "balance": -1660,
             "favorites": []
         },
         {
@@ -46,7 +46,7 @@
             "name": "Leonard",
             "id": 6,
             "room": "07",
-            "balance": 0,
+            "balance": -850,
             "favorites": []
         },
         {
@@ -60,7 +60,7 @@
             "name": "Sergiu",
             "id": 8,
             "room": "09",
-            "balance": 0,
+            "balance": -8905,
             "favorites": []
         },
         {
@@ -88,21 +88,21 @@
             "name": "Nik",
             "id": 12,
             "room": "13",
-            "balance": 0,
+            "balance": 645,
             "favorites": []
         },
         {
             "name": "Phillip",
             "id": 13,
             "room": "14",
-            "balance": 0,
+            "balance": -3190,
             "favorites": []
         },
         {
             "name": "Felix",
             "id": 14,
             "room": "15",
-            "balance": 0,
+            "balance": -2430,
             "favorites": []
         }
     ],
