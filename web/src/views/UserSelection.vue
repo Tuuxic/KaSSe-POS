@@ -154,6 +154,12 @@
             this.getUsers()
         },
         mounted() {
+            
+            if (this.$cookies.isKey("userIsSignedIn")) {
+                this.authenticate();
+                return
+            }
+
             if(!this.$parent.auth) {
                 this.$bvModal.show('auth')
             }
@@ -257,6 +263,7 @@
             },
             authenticate() {
                 this.$parent.auth = true
+                this.$cookies.set("userIsSignedIn","")
                 this.$bvModal.hide("auth")
             }
         }
