@@ -1,8 +1,9 @@
 <template>
     <div id="user-selection">
         <b-modal v-if="!this.$parent.auth" id="auth" size="xl" hide-header hide-footer no-close-on-backdrop centered>
-                <h1 class="header-large text-center text-muted" style="font-size: 45pt; margin-bottom: 5%">Authentification</h1>
-                <h1 class="header-small text-center text-muted" style="font-size: 30pt; margin-bottom: 5%">Authentification</h1>
+                <h1 class="header-large text-center text-muted" style="font-size: 45pt; margin-bottom: 5px">Authentification</h1>
+                <h1 class="header-small text-center text-muted" style="font-size: 30pt; margin-bottom: 5px">Authentification</h1>
+                <!--
                 <div class="text-center">
                     <b-button-group size="sm" class="mb-3 d-flex flex-row shadow">
                         <b-button variant="outline-secondary" v-for="number in 10" :key="'number-'+number"
@@ -14,8 +15,12 @@
                         </b-button>
                     </b-button-group>
                 </div>
-                <h2 v-if="auth_code===''" class="text-center text-muted mb-4">Please enter a code</h2>
-                <h2 v-else class="text-center text-muted mb-4">{{auth_code}}</h2>
+            -->
+                <b-form-input id="`type-number`" type="number" class="my-4 d-flex flex-row shadow text-center" 
+                    placeholder="Please enter a Code"
+                    v-model="auth_code"
+                ></b-form-input>
+                
                 <b-button @click="authenticate" class="shadow" block size="lg" variant="success"
                           :disabled="(auth_code !== auth_number)"><h1>Confirm</h1>
                 </b-button>
@@ -43,8 +48,10 @@
                         </b-button>
                     </b-input-group-append>
                 </b-input-group>
-                <h2 class="text-center text-muted">Admin code</h2>
+                
                 <div class="text-center">
+                    <!--
+                    <h2 class="text-center text-muted">Admin Code</h2>
                     <b-button-group size="sm" class="mb-3 d-flex flex-row shadow">
                         <b-button variant="outline-secondary" v-for="number in 10" :key="'number-'+number"
                                   @click="payment_code += number-1">
@@ -54,8 +61,9 @@
                             <font-awesome-icon :icon="['fas','backspace']"/>
                         </b-button>
                     </b-button-group>
+                    -->
+                    <b-form-input id="`type-number`" type="number" class="my-3 d-flex flex-row shadow text-center" v-model="payment_code" placeholder="Admin Code"></b-form-input>
                 </div>
-                <h2 class="text-center text-muted">{{payment_code}}</h2>
                 <b-button @click="pay" class="shadow" block size="lg" variant="success"
                           :disabled="(payment_user == null || payment_code !== this.$parent.admin_code)"><h1>Confirm payment</h1>
                 </b-button>

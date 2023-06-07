@@ -11,9 +11,12 @@
                     <b-modal id="undo-modal" title="You are about to permanently undo this transaction.">
                         <b-img class="shadow" fluid :src="require('@/assets/images/gifs/invisible.gif')"/>
                         <template v-slot:modal-footer>
-                            <div v-if="undo_transaction.payment === true">
-                                <h2 class="text-center text-muted">Admin code</h2>
+                            <!--
+                            <div v-if="undo_transaction.payment === true || !isLessThenHalfAnHourAgo(undo_transaction)">
+                                
+                                
                                 <div class="text-center">
+                                    
                                     <b-button-group size="md" class="mb-3 d-flex flex-row shadow">
                                         <b-button variant="outline-secondary" v-for="number in 10"
                                                   :key="'number-'+number"
@@ -25,11 +28,20 @@
                                             <font-awesome-icon :icon="['fas','backspace']"/>
                                         </b-button>
                                     </b-button-group>
+                                    
+                                    
                                 </div>
-                                <h2 class="text-center text-muted">{{undo_code}}</h2>
                             </div>
+                             -->
+                                <b-form-input 
+                                    v-if="undo_transaction.payment === true || !isLessThenHalfAnHourAgo(undo_transaction.date)"
+                                    id="`type-number`" 
+                                    type="number" 
+                                    class="mb-3 d-flex flex-row shadow text-center" 
+                                    v-model="undo_code" 
+                                    placeholder="Admin Code"></b-form-input>
                             <b-button block size="lg"
-                                      :disabled="undo_code !== getAdminCode() && undo_transaction.payment === true"
+                                      :disabled="getIsDisabledUndoButton()"
                                       variant="danger" @click="undoTransaction(undo_transaction)"
                                       class="shadow">
                                 Undo transaction
@@ -68,7 +80,6 @@
                         </template>
                         <template v-slot:cell(undo)="data">
                             <b-button :id="'button-undo-transaction' + data.index" variant="danger" class="shadow"
-                                    v-if="isLessThenHalfAnHourAgo(data.item.date)"
                                     @click="showUndoModal(data.item)">Undo
                             </b-button>
                         </template>
@@ -148,17 +159,22 @@
                 })
             },
             isLessThenHalfAnHourAgo(date) {
-                return moment().subtract(60, 'minutes') < moment(date, 'DD.MM.YYYY, HH:mm:ss')
+                return moment().subtract(30, 'minutes') < moment(date, 'DD.MM.YYYY, HH:mm:ss')
             },
             sortByDate(a, b, key) {
                 if (key !== 'date') {
                     return false
                 }
-
                 return moment(a.date, 'DD/MM/YYYY, HH:mm:ss') - moment(b.date, 'DD.MM.YYYY, HH:mm:ss') > 0 ? 1 : -1
             },
             getAdminCode() {
                 return this.$parent.admin_code
+            },
+            getIsDisabledUndoButton() {
+                const isLess30min = this.isLessThenHalfAnHourAgo(this.undo_transaction.date)
+                const undoNEqCode = this.undo_code !== this.getAdminCode()
+                const isPayment = this.undo_transaction.payment === true
+                return (!isLess30min && undoNEqCode) || (isPayment && undoNEqCode) 
             }
         }
     }
