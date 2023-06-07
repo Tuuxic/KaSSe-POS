@@ -154,7 +154,7 @@
             this.getUsers()
         },
         mounted() {
-            
+
             if (this.$cookies.isKey("userIsSignedIn")) {
                 this.authenticate();
                 return
@@ -296,6 +296,7 @@
     .gradient-text {
         background: -webkit-linear-gradient(45deg, #2537AF, #70E5CB);
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
