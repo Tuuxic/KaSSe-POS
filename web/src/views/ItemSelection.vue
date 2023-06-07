@@ -2,14 +2,14 @@
     <div id="item-selection">
         <div v-if="items != null">
             
-            <b-row class="m-0 flex-nowrap">
+            <b-row class="m-0">
                 
                 <b-col>
-                    <b-card class="items-card shadow mt-4">
+                    <b-card class="shadow mt-4">
                         <h1>Items</h1>
-                    <div class="item-selection">
+                    <div class="item-selection d-flex">
 
-                    <b-card-group deck class="card-group">
+                    <b-card-group deck class="d-flex justify-content-center">
                     <b-card no-body v-for="item in items" :key="item.barcode" class="item-container mx-2 my-4 shadow"
                         @click="addItem(item)">
                     <b-card-body>
@@ -37,7 +37,7 @@
                 </b-card>
                 </b-col>
                 
-                <b-col class=" mt-4" cols="5">
+                <b-col class=" mt-4">
                     <b-card class="quantity-selector-table shadow text-center expand">
                         <b-table :items="selected_items" :fields="fields" v-if="selected_items.length > 0">
                             <template v-slot:cell(item)="data">
@@ -71,24 +71,24 @@
                     </b-card>
                 </b-col>
             </b-row>
-            <b-row class="confirm-section flex-nowrap px-2 mt-5 ml-2 mr-1">
-                <b-col class="pl-0" cols="12">
-                    <b-card no-body class="shadow">
-                        <b-card-body class="d-flex">
-                            <b-col class="d-flex flex-column">
-                                <h1>Total: {{formatPrice(total())}}</h1>
+            <b-row class="confirm-section d-flex px-2 mt-3 ml-2 mr-1">
+                <b-col class="pl-0">
+                    <b-card  class="shadow">
+                        <b-card-body class="d-flex flex-wrap">
+                            <b-col class="d-flex flex-column mt-3 mb-3">
+                                <h1 class="text-nowrap">Total: {{formatPrice(total())}}</h1>
                             <template v-if="$parent.selected_user != null">
-                                <h4 class="text-muted my-auto">{{$parent.selected_user.name}}<br>
+                                <h4 class="text-muted my-auto text-nowrap">{{$parent.selected_user.name}}<br>
                                     Balance: {{formatPrice($parent.selected_user.balance)}}</h4>
-                                    <b-form-checkbox size="small" v-model="guest">Mark as guest purchase
+                                    <b-form-checkbox class="text-nowrap" size="small" v-model="guest">Mark as guest purchase
                                 </b-form-checkbox>
                                 
                             </template>
                             <h4 v-else class="text-muted my-auto">No user selected!</h4>
                             </b-col>
-                            <b-col class="d-flex flex-column">
+                            <b-col class="d-flex flex-column mt-3 mb-3">
                                 <template v-if="$parent.selected_user != null">
-                                    <b-button size="lg" variant="success" class="mt-auto shadow"
+                                    <b-button size="lg" variant="success" class="shadow"
                                           :disabled="selected_items.length === 0" @click="buy"><h1>Confirm</h1>
                                 </b-button>
                                 </template>
@@ -326,56 +326,24 @@
         height: calc(100vh - 438px);
         margin-top: 0;
     }
-    
-    .card-group {
-        display: flex;
-        justify-content: center;
-
-    }
 
     .purple-gradient {
         background: rgb(214, 0, 255);
         background: linear-gradient(90deg, rgba(214, 0, 255, 1) 0%, rgba(255, 218, 0, 1) 100%);
     }
 
-    @media (max-width: 825px) and (min-width: 576px) {
-        .item-container {
-            min-width: 200px;
-            max-width: 200px;
+    @media (max-width: 575px) {
+        .gif {
+            display: none;
         }
 
-        .items-card {
-            width: 75%;
-        }
-
-        .quantity-selector-table {
-            width: 150%;
-            margin-left: -40%;
-            overflow-y: scroll;
-        }
-    }
-
-    @media (max-width: 575px) and (min-width: 0px) {
-        .item-container {
-            min-width: 200px;
-            max-width: 200px;
-        }
-        .items-card {
-            width: 100%;
+        .expand {
+            height: auto;
         }
 
         .item-selection {
-            display: flex;
+            height: auto;
         }
-
-        .quantity-selector-table {
-            width: 263%;
-            overflow-y: scroll;
-        }
-
-        .confirm-section {
-            width: 200%;
-        }
-
     }
+
 </style>
