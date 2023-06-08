@@ -1,13 +1,31 @@
 <template>
     <div id="user-selection">
-        <b-navbar toggleable="lg" variant="dark" :sticky="true">
-                <b-navbar-brand href="#" class="logo gradient-text">Ka$$e</b-navbar-brand>
-                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-navbar toggleable="md" variant="dark" type="dark" :sticky="true" class="shadow">
+                <b-navbar-brand href="#" class="logo gradient-text ml-2">Ka$$e</b-navbar-brand>
+                <b-navbar-toggle target="nav-collapse">
+                    <template #default="{ expanded }">
+                        <b-icon v-if="expanded" icon="chevron-bar-up" font-scale="1.75" variant="light"></b-icon>
+                        <b-icon v-else icon="chevron-bar-down" font-scale="1.75" variant="light"></b-icon>
+                    </template>
+                </b-navbar-toggle>
                 <b-collapse id="nav-collapse" is-nav>
+                    <hr color="white">
                     <b-navbar-nav class="ml-auto">
-                        <b-nav-item @click="$router.push('/transaction-list')">Transactions</b-nav-item>
-                        <b-nav-item @click="key = (key+1) % sorting_keys.length">Sort by: {{sorting_keys[key]}}</b-nav-item>
-                        <b-nav-item @click="showPayment">Add payment</b-nav-item>
+                        <b-button size="md" variant="outline-secondary" class="text-white shadow m-1"
+                                  @click="$router.push('/transaction-list')">
+                            Transactions
+                        </b-button>
+                        
+                        <b-button size="md" variant="outline-secondary" class="text-white shadow m-1"
+                                  @click="showPayment">
+                            Add payment
+                        </b-button>
+
+                        <b-button size="md" variant="outline-secondary" class="text-white shadow m-1"
+                                  @click="key = (key+1) % sorting_keys.length">
+                            Sort by: {{sorting_keys[key]}}
+                        </b-button>
+                        <div class="navitems-padding"></div>
                     </b-navbar-nav>
                 </b-collapse>
         </b-navbar>
@@ -42,11 +60,11 @@
                         </b-row>
                     </b-card>
                 </b-modal>
-                <b-row style="flex-grow: 1">
-                    <b-col class="pr-0 text-muted" style="height: 100%">
-                        <b-card no-body class="selection-more-users shadow" @click="$bvModal.show('more-users')">
-                            <b-card-body class="p-2 d-flex flex-column">
-                                <h2 class="my-auto">More users</h2>
+                <b-row>
+                    <b-col class="text-muted">
+                        <b-card no-body class="d-flex shadow" @click="$bvModal.show('more-users')">
+                            <b-card-body class="d-flex justify-content-center align-items-center">
+                                <h2 >More users</h2>
                             </b-card-body>
                         </b-card>
                     </b-col>
@@ -257,26 +275,10 @@
 
 <style scoped>
 
-    .full-height {
-        height: 100vh;
-        width: 100vw;
-    }
-
     .logo {
-        font-size: 30px;
+        font-size: 40px;
     }
 
-    .logo-small {
-        display: none;
-    }
-
-    .selection-more-users {
-        height: 100%;
-    }
-
-    .left-side-panel {
-        flex-grow: 1
-    }
 
     .gradient-text {
         background: -webkit-linear-gradient(45deg, #2537AF, #70E5CB);
@@ -303,12 +305,35 @@
         margin-bottom: 5px
     }
 
+    /* Small size user icons*/
     @media (max-width: 500px) {
         .header-large {
-        font-size: 25pt; 
-        margin-bottom: 5px
+            font-size: 25pt; 
+            margin-bottom: 5px
+        }
+        .room-number {
+            position: absolute;
+            font-size: 40pt;
+            right: 10px;
+            top: 5px;
+            z-index: 0;
+            color: gray;
+        }
+        .selection-name-field {
+            font-size: 15pt;
+        }
+
+        .selection-price-field {
+            font-size: 15pt;
+        }
+
     }
 
+    /* Padding when navbar collapses */
+    @media (max-width: 768px) {
+        .navitems-padding {
+            margin-bottom: 15px;
+        }
     }
 
     /* Medium size user selection items*/
