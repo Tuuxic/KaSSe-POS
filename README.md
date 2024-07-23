@@ -1,5 +1,7 @@
+# Ka$$e Point-of-Service
+
 A simple Point-of-Service software to manage the payments for beverages.
-It uses [Vue](https://vuejs.org/), [SocketIO](https://socket.io/), [Flask](https://flask.palletsprojects.com/) and stores data as [JSON](https://www.json.org/) files.
+It uses [Vue](https://vuejs.org/), [Flask](https://flask.palletsprojects.com/) and stores data as [JSON](https://www.json.org/) files.
 
 ## Setup
 
